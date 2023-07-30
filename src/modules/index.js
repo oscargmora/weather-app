@@ -1,4 +1,4 @@
 import '../styles/meyer-reset.css';
-import getWeatherData from './api-controller';
+import getForecast from './api-controller';
 
-getWeatherData();
+getForecast('fort lauderdale');
