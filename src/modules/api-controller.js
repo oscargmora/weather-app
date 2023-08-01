@@ -1,5 +1,29 @@
+function getHourlyData(day, dayArray) {
+    day.hour.forEach((hour) => {
+        const hourData = {
+            time: hour.time,
+            temp_c: hour.temp_c,
+            temp_f: hour.temp_f,
+            chance_of_rain: hour.chance_of_rain
+        };
+        dayArray.push(hourData);
+    });
+    return dayArray;
+}
+
+function getHourlyDataPerDay(weatherData) {
+    const hourlyDataPerDayArray = [];
+    const days = weatherData.forecast.forecastday;
+    days.forEach((day) => {
+        const dayArray = [];
+        getHourlyData(day, dayArray);
+        hourlyDataPerDayArray.push(dayArray);
+    });
+    return hourlyDataPerDayArray;
+}
+
 function processWeatherData(weatherData) {
-    console.log(weatherData);
+    const hourlyDataPerDayArray = getHourlyDataPerDay(weatherData);
     const reducedWeatherData = {
         name: weatherData.location.name,
         time: weatherData.location.localtime,
@@ -14,76 +38,32 @@ function processWeatherData(weatherData) {
         wind_mph: weatherData.current.wind_mph,
         forecastDay: [
             {
-                today: [
-                    { date: weatherData.forecast.forecastday[0].date },
-                    {
-                        sunrise:
-                            weatherData.forecast.forecastday[0].astro.sunrise
-                    },
-                    {
-                        sunset: weatherData.forecast.forecastday[0].astro.sunset
-                    },
-                    {
-                        rain: weatherData.forecast.forecastday[0].day
-                            .daily_chance_of_rain
-                    },
-                    {
-                        avgtemp_c:
-                            weatherData.forecast.forecastday[0].day.avgtemp_c
-                    },
-                    {
-                        avgtemp_f:
-                            weatherData.forecast.forecastday[0].day.avgtemp_f
-                    }
-                ]
+                date: weatherData.forecast.forecastday[0].date,
+                sunrise: weatherData.forecast.forecastday[0].astro.sunrise,
+                sunset: weatherData.forecast.forecastday[0].astro.sunset,
+                rain: weatherData.forecast.forecastday[0].day
+                    .daily_chance_of_rain,
+                avgtemp_c: weatherData.forecast.forecastday[0].day.avgtemp_c,
+                avgtemp_f: weatherData.forecast.forecastday[0].day.avgtemp_f
             },
             {
-                dayTwo: [
-                    { date: weatherData.forecast.forecastday[0].date },
-                    {
-                        rain: weatherData.forecast.forecastday[0].day
-                            .daily_chance_of_rain
-                    },
-                    {
-                        avgtemp_c:
-                            weatherData.forecast.forecastday[0].day.avgtemp_c
-                    },
-                    {
-                        avgtemp_f:
-                            weatherData.forecast.forecastday[0].day.avgtemp_f
-                    }
-                ]
+                date: weatherData.forecast.forecastday[1].date,
+                rain: weatherData.forecast.forecastday[1].day
+                    .daily_chance_of_rain,
+                avgtemp_c: weatherData.forecast.forecastday[1].day.avgtemp_c,
+                avgtemp_f: weatherData.forecast.forecastday[1].day.avgtemp_f
             },
             {
-                dayThree: [
-                    { date: weatherData.forecast.forecastday[0].date },
-                    {
-                        rain: weatherData.forecast.forecastday[0].day
-                            .daily_chance_of_rain
-                    },
-                    {
-                        avgtemp_c:
-                            weatherData.forecast.forecastday[0].day.avgtemp_c
-                    },
-                    {
-                        avgtemp_f:
-                            weatherData.forecast.forecastday[0].day.avgtemp_f
-                    }
-                ]
+                date: weatherData.forecast.forecastday[2].date,
+                rain: weatherData.forecast.forecastday[2].day
+                    .daily_chance_of_rain,
+                avgtemp_c: weatherData.forecast.forecastday[2].day.avgtemp_c,
+                avgtemp_f: weatherData.forecast.forecastday[2].day.avgtemp_f
             }
         ],
-        forecastHour: [
-            {
-                today: {
-                    todayHourly:
-                        weatherData.forecast.forecastday[0].hour.forEach(
-                            console.log('works')
-                        )
-                }
-            }
-        ]
+        forecastHourly: hourlyDataPerDayArray
     };
-    console.log(reducedWeatherData);
+    return reducedWeatherData;
 }
 
 async function getForecast(city) {
@@ -92,8 +72,9 @@ async function getForecast(city) {
         { mode: 'cors' }
     );
     const weatherData = await response.json();
-    processWeatherData(weatherData);
-    return weatherData;
+    const reducedWeatherData = processWeatherData(weatherData);
+    console.log(reducedWeatherData);
+    return reducedWeatherData;
 }
 
 export default getForecast;
