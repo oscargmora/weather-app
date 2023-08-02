@@ -1,3 +1,5 @@
+import loadDOM from './dom-controller';
+
 function getHourlyData(day, dayArray) {
     day.hour.forEach((hour) => {
         const hourData = {
@@ -27,7 +29,6 @@ function processWeatherData(weatherData) {
     const reducedWeatherData = {
         name: weatherData.location.name,
         time: weatherData.location.localtime,
-        cloud: weatherData.current.cloud,
         condition: weatherData.current.condition.text,
         feelslike_c: weatherData.current.feelslike_c,
         feelslike_f: weatherData.current.feelslike_f,
@@ -74,6 +75,7 @@ async function getForecast(city) {
     const weatherData = await response.json();
     const reducedWeatherData = processWeatherData(weatherData);
     console.log(reducedWeatherData);
+    loadDOM(reducedWeatherData);
     return reducedWeatherData;
 }
 
