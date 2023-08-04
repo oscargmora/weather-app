@@ -2,22 +2,26 @@ import {
     formatDate,
     formatDayOfTheWeek,
     formatTime,
-    createAndAppendElement
+    createAndAppendElement,
+    createAppendAndAddClassTemp,
+    createAppendAndAddHiddenClassTemp
 } from './format-and-create-elements';
 
 const containerOne = document.querySelector('#container-one');
 const containerTwo = document.querySelector('#container-two');
+const containerThree = document.querySelector('#container-three');
 
 function clearDOM() {
-    containerOne.innerHTML = '';
-    containerTwo.innerHTML = '';
+    containerOne.innerText = '';
+    containerTwo.innerText = '';
+    containerThree.innerText = '';
 }
 
 function loadDailyForecast(forecastDayData) {
     forecastDayData.forEach((day) => {
         createAndAppendElement(containerTwo, formatDayOfTheWeek(day.date));
-        createAndAppendElement(containerTwo, `${day.avgtemp_c}°C`);
-        createAndAppendElement(containerTwo, `${day.avgtemp_f}°F`);
+        createAppendAndAddHiddenClassTemp(containerTwo, `${day.avgtemp_c}°C`);
+        createAppendAndAddClassTemp(containerTwo, `${day.avgtemp_f}°F`);
         createAndAppendElement(containerTwo, `${day.rain} %`);
     });
 }
@@ -25,10 +29,13 @@ function loadDailyForecast(forecastDayData) {
 function loadHourlyForecast(forecastHourlyData) {
     forecastHourlyData.forEach((day) => {
         day.forEach((hour) => {
-            createAndAppendElement(containerTwo, formatTime(hour.time));
-            createAndAppendElement(containerTwo, `${hour.temp_c}°C`);
-            createAndAppendElement(containerTwo, `${hour.temp_f}°F`);
-            createAndAppendElement(containerTwo, `${hour.chance_of_rain} %`);
+            createAndAppendElement(containerThree, formatTime(hour.time));
+            createAppendAndAddHiddenClassTemp(
+                containerThree,
+                `${hour.temp_c}°C`
+            );
+            createAppendAndAddClassTemp(containerThree, `${hour.temp_f}°F`);
+            createAndAppendElement(containerThree, `${hour.chance_of_rain} %`);
         });
     });
 }
@@ -38,13 +45,28 @@ function loadContainerOne(reducedWeatherData) {
     createAndAppendElement(containerOne, formatDate(reducedWeatherData.time));
     createAndAppendElement(containerOne, formatTime(reducedWeatherData.time));
     createAndAppendElement(containerOne, reducedWeatherData.condition);
-    createAndAppendElement(containerOne, `${reducedWeatherData.temp_c}°C`);
-    createAndAppendElement(containerOne, `${reducedWeatherData.temp_f}°F`);
-    createAndAppendElement(containerOne, `${reducedWeatherData.feelslike_c}°C`);
-    createAndAppendElement(containerOne, `${reducedWeatherData.feelslike_f}°F`);
+    createAppendAndAddHiddenClassTemp(
+        containerOne,
+        `${reducedWeatherData.temp_c}°C`
+    );
+    createAppendAndAddClassTemp(containerOne, `${reducedWeatherData.temp_f}°F`);
+    createAppendAndAddHiddenClassTemp(
+        containerOne,
+        `${reducedWeatherData.feelslike_c}°C`
+    );
+    createAppendAndAddClassTemp(
+        containerOne,
+        `${reducedWeatherData.feelslike_f}°F`
+    );
     createAndAppendElement(containerOne, `${reducedWeatherData.humidity} %`);
-    createAndAppendElement(containerOne, `${reducedWeatherData.wind_kph} KM/H`);
-    createAndAppendElement(containerOne, `${reducedWeatherData.wind_mph} MPH`);
+    createAppendAndAddHiddenClassTemp(
+        containerOne,
+        `${reducedWeatherData.wind_kph} KM/H`
+    );
+    createAppendAndAddClassTemp(
+        containerOne,
+        `${reducedWeatherData.wind_mph} MPH`
+    );
 }
 
 function loadContainerTwo(reducedWeatherData) {

@@ -35,4 +35,25 @@ function createAndAppendElement(parent, text) {
     parent.appendChild(element);
 }
 
-export { formatDate, formatDayOfTheWeek, formatTime, createAndAppendElement };
+function createAppendAndAddClassTemp(parent, text) {
+    const element = document.createElement('p');
+    element.innerText = text;
+    element.classList.add('temp');
+    parent.appendChild(element);
+}
+
+function createAppendAndAddHiddenClassTemp(parent, text) {
+    const element = document.createElement('p');
+    element.innerText = text;
+    element.classList.add('temp', 'hidden-temp');
+    parent.appendChild(element);
+}
+
+export {
+    formatDate,
+    formatDayOfTheWeek,
+    formatTime,
+    createAndAppendElement,
+    createAppendAndAddClassTemp,
+    createAppendAndAddHiddenClassTemp
+};

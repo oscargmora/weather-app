@@ -74,7 +74,6 @@ async function getForecast(city) {
     );
     const weatherData = await response.json();
     const reducedWeatherData = processWeatherData(weatherData);
-    console.log(reducedWeatherData);
     loadDOM(reducedWeatherData);
     return reducedWeatherData;
 }
