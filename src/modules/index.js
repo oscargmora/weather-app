@@ -1,5 +1,6 @@
 import '../styles/meyer-reset.css';
 import '../styles/data-styling.css';
+import '../styles/error.css';
 import getForecast from './api-controller';
 import {
     switchTemperatureMeasurement,
@@ -12,6 +13,7 @@ const fahrenheitCelsiusButton = document.querySelector(
     '#fahrenheit-celsius-button'
 );
 const dailyHourlyButton = document.querySelector('#daily-hourly-button');
+const overlay = document.querySelector('.overlay');
 
 let isFahrenheit = true;
 let isDaily = true;
@@ -20,17 +22,6 @@ submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     getForecast(formInput.value);
     formInput.value = '';
-
-    if (fahrenheitCelsiusButton.textContent === 'Imperial') {
-        const temperatureElements = Array.from(
-            document.querySelectorAll('.temp')
-        );
-        temperatureElements.forEach((element) => {
-            if (element.classList.contains('hidden-temp')) {
-                element.classList.remove('hidden-temp');
-            }
-        });
-    }
 });
 
 fahrenheitCelsiusButton.addEventListener('click', () => {
@@ -52,6 +43,12 @@ dailyHourlyButton.addEventListener('click', () => {
         dailyHourlyButton.innerText = 'Daily';
     }
 });
+
+window.onclick = (event) => {
+    if (event.target === overlay) {
+        overlay.style.display = 'none';
+    }
+};
 
 window.onload = () => {
     getForecast('Miami');

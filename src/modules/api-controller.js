@@ -1,5 +1,24 @@
 import loadDOM from './dom-controller';
 
+function checkIfImperial() {
+    const fahrenheitCelsiusButton = document.querySelector(
+        '#fahrenheit-celsius-button'
+    );
+
+    if (fahrenheitCelsiusButton.textContent === 'Imperial') {
+        const temperatureElements = Array.from(
+            document.querySelectorAll('.temp')
+        );
+        temperatureElements.forEach((element) => {
+            if (element.classList.contains('hidden-temp')) {
+                element.classList.remove('hidden-temp');
+            } else {
+                element.classList.add('hidden-temp');
+            }
+        });
+    }
+}
+
 function getHourlyData(day, dayArray) {
     day.hour.forEach((hour) => {
         const hourData = {
@@ -68,14 +87,22 @@ function processWeatherData(weatherData) {
 }
 
 async function getForecast(city) {
-    const response = await fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=7429a55f3f544dbfadd13909232407&q=${city}&days=3`,
-        { mode: 'cors' }
-    );
-    const weatherData = await response.json();
-    const reducedWeatherData = processWeatherData(weatherData);
-    loadDOM(reducedWeatherData);
-    return reducedWeatherData;
+    const overlay = document.querySelector('.overlay');
+
+    try {
+        const response = await fetch(
+            `https://api.weatherapi.com/v1/forecast.json?key=7429a55f3f544dbfadd13909232407&q=${city}&days=3`,
+            { mode: 'cors' }
+        );
+        const weatherData = await response.json();
+        const reducedWeatherData = processWeatherData(weatherData);
+        loadDOM(reducedWeatherData);
+        checkIfImperial();
+        return reducedWeatherData;
+    } catch (error) {
+        overlay.classList.add('active');
+        return error;
+    }
 }
 
 export default getForecast;

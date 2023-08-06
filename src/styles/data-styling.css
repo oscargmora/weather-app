@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'rubik';
+    src: url('../fonts/Rubik/Rubik-VariableFont_wght.ttf');
+}
+
+body {
+    font-family: 'rubik';
+}
+
 .hidden,
 .hidden-temp {
     display: none;
