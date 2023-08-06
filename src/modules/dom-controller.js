@@ -6,6 +6,7 @@ import {
     createAppendAndAddClassTemp,
     createAppendAndAddHiddenClassTemp
 } from './format-and-create-elements';
+import backgroundUpdater from './style-controller';
 
 const containerOne = document.querySelector('#container-one');
 const containerTwo = document.querySelector('#container-two');
@@ -86,8 +87,10 @@ function loadContainerTwo(reducedWeatherData) {
 
 function loadDOM(reducedWeatherData) {
     clearDOM();
+    console.log(reducedWeatherData);
     loadContainerOne(reducedWeatherData);
     loadContainerTwo(reducedWeatherData);
+    backgroundUpdater(reducedWeatherData);
 }
 
 export default loadDOM;
