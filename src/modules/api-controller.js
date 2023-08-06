@@ -87,8 +87,6 @@ function processWeatherData(weatherData) {
 }
 
 async function getForecast(city) {
-    const overlay = document.querySelector('.overlay');
-
     try {
         const response = await fetch(
             `https://api.weatherapi.com/v1/forecast.json?key=7429a55f3f544dbfadd13909232407&q=${city}&days=3`,
@@ -100,7 +98,17 @@ async function getForecast(city) {
         checkIfImperial();
         return reducedWeatherData;
     } catch (error) {
+        const overlay = document.querySelector('.overlay');
+        const errorDefaultContent = document.querySelector(
+            '.error-default-content'
+        );
+        const errorContent = document.querySelector('.error-content');
+
+        errorDefaultContent.innerText = `Please enter a valid city`;
+        errorContent.innerText = error;
+
         overlay.classList.add('active');
+
         return error;
     }
 }

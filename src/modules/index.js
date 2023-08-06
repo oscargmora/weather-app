@@ -46,7 +46,7 @@ dailyHourlyButton.addEventListener('click', () => {
 
 window.onclick = (event) => {
     if (event.target === overlay) {
-        overlay.style.display = 'none';
+        overlay.classList.remove('active');
     }
 };
 

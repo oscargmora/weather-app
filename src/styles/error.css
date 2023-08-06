@@ -1,5 +1,6 @@
 .overlay.active {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -14,6 +15,10 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.overlay-content {
+.overlay-content,
+.error-content {
     background-color: white;
+    width: 50%;
+    padding: 1em;
+    text-align: center;
 }
