@@ -15,7 +15,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.overlay-content,
+.error-default-content,
 .error-content {
     background-color: white;
     width: 50%;
