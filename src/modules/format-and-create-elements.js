@@ -29,6 +29,16 @@ function formatTime(timeData) {
     return format(new Date(year, month - 1, day, hour, minutes), 'h:mm a');
 }
 
+function createIcon(parent, dataIcon, newClass) {
+    const icon = new Image();
+
+    icon.src = dataIcon;
+
+    icon.classList.add('data-icon', newClass);
+
+    parent.append(icon);
+}
+
 function createAndAppendElement(parent, propertyName, text) {
     const element = document.createElement('p');
 
@@ -48,6 +58,8 @@ function createAndAppendElementWithIcon(parent, propertyName, text, icon) {
     element.classList.add(propertyName);
 
     weatherIcon.src = icon;
+
+    weatherIcon.classList.add('weather-icon');
 
     parent.append(element, weatherIcon);
 }
@@ -76,6 +88,7 @@ export {
     formatDate,
     formatDayOfTheWeek,
     formatTime,
+    createIcon,
     createAndAppendElement,
     createAndAppendElementWithIcon,
     createAppendAndAddClassTemp,

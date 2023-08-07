@@ -1,7 +1,13 @@
+import humidityImage from '../img/icons/humidity.png';
+import sunriseImage from '../img/icons/sunrise.png';
+import sunsetImage from '../img/icons/sunset.png';
+import thermometerImage from '../img/icons/thermometer.png';
+import windSpeedImage from '../img/icons/wind.png';
 import {
     formatDate,
     formatDayOfTheWeek,
     formatTime,
+    createIcon,
     createAndAppendElement,
     createAndAppendElementWithIcon,
     createAppendAndAddClassTemp,
@@ -101,6 +107,7 @@ function loadContainerOne(reducedWeatherData) {
         'temp-container-one',
         `${reducedWeatherData.temp_f}°F`
     );
+    createIcon(containerOne, thermometerImage, 'thermometer-icon');
     createAppendAndAddHiddenClassTemp(
         containerOne,
         'feels-like-temp-container-one',
@@ -111,11 +118,13 @@ function loadContainerOne(reducedWeatherData) {
         'feels-like-temp-container-one',
         `${reducedWeatherData.feelslike_f}°F`
     );
+    createIcon(containerOne, humidityImage, 'humidity-icon');
     createAndAppendElement(
         containerOne,
         'humidity',
         `${reducedWeatherData.humidity} %`
     );
+    createIcon(containerOne, windSpeedImage, 'wind-speed-icon');
     createAppendAndAddHiddenClassTemp(
         containerOne,
         'wind-speed',
@@ -126,11 +135,13 @@ function loadContainerOne(reducedWeatherData) {
         'wind-speed',
         `${reducedWeatherData.wind_mph} MPH`
     );
+    createIcon(containerOne, sunriseImage, 'sunrise-icon');
     createAndAppendElement(
         containerOne,
         'sunrise',
         `Sunrise: ${reducedWeatherData.forecastDay[0].sunrise}`
     );
+    createIcon(containerOne, sunsetImage, 'sunset-icon');
     createAndAppendElement(
         containerOne,
         'sunset',
