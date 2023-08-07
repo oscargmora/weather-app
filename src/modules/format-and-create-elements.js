@@ -49,7 +49,7 @@ function createAndAppendElementWithIcon(parent, propertyName, text, icon) {
 
     weatherIcon.src = icon;
 
-    parent.append(weatherIcon, element);
+    parent.append(element, weatherIcon);
 }
 
 function createAppendAndAddClassTemp(parent, propertyName, text) {

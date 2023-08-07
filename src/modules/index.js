@@ -2,6 +2,7 @@ import '../styles/meyer-reset.css';
 import '../styles/data-styling.css';
 import '../styles/error.css';
 import '../styles/stagnant-html.css';
+import '../styles/container-one.css';
 import getForecast from './api-controller';
 import {
     switchTemperatureMeasurement,

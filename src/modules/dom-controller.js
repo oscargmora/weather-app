@@ -126,20 +126,19 @@ function loadContainerOne(reducedWeatherData) {
         'wind-speed',
         `${reducedWeatherData.wind_mph} MPH`
     );
-}
-
-function loadContainerTwo(reducedWeatherData) {
     createAndAppendElement(
-        containerTwo,
+        containerOne,
         'sunrise',
         `Sunrise: ${reducedWeatherData.forecastDay[0].sunrise}`
     );
     createAndAppendElement(
-        containerTwo,
+        containerOne,
         'sunset',
         `Sunset: ${reducedWeatherData.forecastDay[0].sunset}`
     );
+}
 
+function loadContainerTwo(reducedWeatherData) {
     loadDailyForecast(reducedWeatherData.forecastDay);
 
     loadHourlyForecast(reducedWeatherData.forecastHourly);

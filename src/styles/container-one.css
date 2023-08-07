@@ -1,0 +1,43 @@
+.name {
+    font-size: 2em;
+}
+
+.date {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.time {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.condition {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+#container-one > img {
+    grid-area: 5 / 1 / 5 / 2;
+}
+
+#container-one > .temp-container-one.temp {
+    grid-area: 6 / 1 / 7 / 2;
+}
+
+.feels-like-temp-container-one {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+#container-one > .humidity {
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+#container-one > .wind-speed {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.sunrise {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.sunset {
+    grid-area: 5 / 3 / 6 / 4;
+}
