@@ -17,3 +17,13 @@ body {
 .hidden-temp {
     display: none;
 }
+
+p,
+img {
+    background-color: rgba(240, 248, 255, 0.463);
+    padding: 0.2em;
+}
+
+.name {
+    font-size: 2em;
+}

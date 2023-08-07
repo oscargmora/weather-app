@@ -29,23 +29,46 @@ function formatTime(timeData) {
     return format(new Date(year, month - 1, day, hour, minutes), 'h:mm a');
 }
 
-function createAndAppendElement(parent, text) {
+function createAndAppendElement(parent, propertyName, text) {
     const element = document.createElement('p');
+
     element.innerText = text;
+
+    element.classList.add(propertyName);
+
     parent.appendChild(element);
 }
 
-function createAppendAndAddClassTemp(parent, text) {
+function createAndAppendElementWithIcon(parent, propertyName, text, icon) {
     const element = document.createElement('p');
+    const weatherIcon = document.createElement('img');
+
     element.innerText = text;
-    element.classList.add('temp');
+
+    element.classList.add(propertyName);
+
+    weatherIcon.src = icon;
+
+    parent.append(weatherIcon, element);
+}
+
+function createAppendAndAddClassTemp(parent, propertyName, text) {
+    const element = document.createElement('p');
+
+    element.innerText = text;
+
+    element.classList.add(propertyName, 'temp');
+
     parent.appendChild(element);
 }
 
-function createAppendAndAddHiddenClassTemp(parent, text) {
+function createAppendAndAddHiddenClassTemp(parent, propertyName, text) {
     const element = document.createElement('p');
+
     element.innerText = text;
-    element.classList.add('temp', 'hidden-temp');
+
+    element.classList.add(propertyName, 'temp', 'hidden-temp');
+
     parent.appendChild(element);
 }
 
@@ -54,6 +77,7 @@ export {
     formatDayOfTheWeek,
     formatTime,
     createAndAppendElement,
+    createAndAppendElementWithIcon,
     createAppendAndAddClassTemp,
     createAppendAndAddHiddenClassTemp
 };

@@ -23,6 +23,7 @@ function getHourlyData(day, dayArray) {
     day.hour.forEach((hour) => {
         const hourData = {
             time: hour.time,
+            icon: hour.condition.icon,
             temp_c: hour.temp_c,
             temp_f: hour.temp_f,
             chance_of_rain: hour.chance_of_rain
@@ -49,6 +50,7 @@ function processWeatherData(weatherData) {
         name: weatherData.location.name,
         time: weatherData.location.localtime,
         condition: weatherData.current.condition.text,
+        icon: weatherData.current.condition.icon,
         feelslike_c: weatherData.current.feelslike_c,
         feelslike_f: weatherData.current.feelslike_f,
         humidity: weatherData.current.humidity,
@@ -59,6 +61,7 @@ function processWeatherData(weatherData) {
         forecastDay: [
             {
                 date: weatherData.forecast.forecastday[0].date,
+                icon: weatherData.forecast.forecastday[0].day.condition.icon,
                 sunrise: weatherData.forecast.forecastday[0].astro.sunrise,
                 sunset: weatherData.forecast.forecastday[0].astro.sunset,
                 rain: weatherData.forecast.forecastday[0].day
@@ -68,6 +71,7 @@ function processWeatherData(weatherData) {
             },
             {
                 date: weatherData.forecast.forecastday[1].date,
+                icon: weatherData.forecast.forecastday[1].day.condition.icon,
                 rain: weatherData.forecast.forecastday[1].day
                     .daily_chance_of_rain,
                 avgtemp_c: weatherData.forecast.forecastday[1].day.avgtemp_c,
@@ -75,6 +79,7 @@ function processWeatherData(weatherData) {
             },
             {
                 date: weatherData.forecast.forecastday[2].date,
+                icon: weatherData.forecast.forecastday[2].day.condition.icon,
                 rain: weatherData.forecast.forecastday[2].day
                     .daily_chance_of_rain,
                 avgtemp_c: weatherData.forecast.forecastday[2].day.avgtemp_c,

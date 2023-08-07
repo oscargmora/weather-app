@@ -4,6 +4,7 @@
         "avgtemp",
         "feelslike",
         "forecastday",
-        "localtime"
+        "localtime",
+        "wght"
     ]
 }
