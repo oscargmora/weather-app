@@ -57,6 +57,7 @@ function processWeatherData(weatherData) {
         temp_f: weatherData.current.temp_f,
         wind_kph: weatherData.current.wind_kph,
         wind_mph: weatherData.current.wind_mph,
+        is_day: weatherData.current.is_day,
         forecastDay: [
             {
                 date: weatherData.forecast.forecastday[0].date,

@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'rubik';
+    src: url('../fonts/Rubik/Rubik-VariableFont_wght.ttf');
+}
+
+body {
+    font-family: 'rubik';
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+body.dark-mode {
+    color: #dadce0;
+}
+
+.hidden,
+.hidden-temp {
+    display: none;
+}
+
 button {
     border: none;
     border-radius: 3px;
@@ -6,7 +30,6 @@ button {
 container,
 #button-and-form {
     padding: 0.38em;
-    background-color: rgba(255, 255, 255, 0.588);
 }
 
 form,

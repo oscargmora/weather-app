@@ -8,29 +8,42 @@ import thunderstorm from '../img/backgrounds/thunderstorm.jpg';
 
 function backgroundUpdater(reducedWeatherData) {
     switch (true) {
+        case reducedWeatherData.condition === 'Partly cloudy' &&
+            reducedWeatherData.is_day === 0:
+            document.body.style.backgroundImage = `url('${nightPartlyCloudy}')`;
+            document.body.classList.add('dark-mode');
+            break;
+        case reducedWeatherData.condition === 'Clear' &&
+            reducedWeatherData.is_day === 0:
+            document.body.style.backgroundImage = `url('${nightClearSkies}')`;
+            document.body.classList.add('dark-mode');
+            break;
         case reducedWeatherData.condition === 'Partly cloudy':
             document.body.style.backgroundImage = `url('${dayPartlyCloudy}')`;
+            document.body.classList.remove('dark-mode');
             break;
         case reducedWeatherData.condition === 'Overcast':
             document.body.style.backgroundImage = `url('${overcast}')`;
+            document.body.classList.add('dark-mode');
             break;
         case reducedWeatherData.condition === 'Sunny':
             document.body.style.backgroundImage = `url('${dayClearSkies}')`;
+            document.body.classList.remove('dark-mode');
             break;
-        case reducedWeatherData.condition === 'Rainy':
-            document.body.style.backgroundImage = `url('${rain.jpg}')`;
+        case reducedWeatherData.condition === 'Rainy' ||
+            reducedWeatherData.condition === 'Patchy rain possible' ||
+            reducedWeatherData.condition === 'Light rain':
+            document.body.style.backgroundImage = `url('${rain}')`;
+            document.body.classList.add('dark-mode');
             break;
-        case reducedWeatherData.condition === 'Thunderstorms':
+        case reducedWeatherData.condition === 'Thunderstorms' ||
+            reducedWeatherData.condition === 'Patchy light rain with thunder':
             document.body.style.backgroundImage = `url('${thunderstorm}')`;
-            break;
-        case reducedWeatherData.condition === 'Partly Cloudy':
-            document.body.style.backgroundImage = `url('${nightPartlyCloudy}')`;
-            break;
-        case reducedWeatherData.condition === 'Clear':
-            document.body.style.backgroundImage = `url('${nightClearSkies}')`;
+            document.body.classList.add('dark-mode');
             break;
         default:
             document.body.style.backgroundImage = `url('${dayClearSkies}')`;
+            document.body.classList.remove('dark-mode');
             break;
     }
 }

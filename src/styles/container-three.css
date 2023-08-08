@@ -1,4 +1,5 @@
 #container-three > div {
     margin: 1em;
     justify-self: center;
+    text-align: center;
 }

@@ -105,47 +105,47 @@ function loadContainerOne(reducedWeatherData) {
     createAppendAndAddHiddenClassTemp(
         containerOne,
         'feels-like-temp-container-one',
-        `Feels Like ${reducedWeatherData.feelslike_c}°C`
+        `Feels Like \n ${reducedWeatherData.feelslike_c}°C`
     );
     createAppendAndAddClassTemp(
         containerOne,
         'feels-like-temp-container-one',
-        `Feels Like ${reducedWeatherData.feelslike_f}°F`
+        `Feels Like \n ${reducedWeatherData.feelslike_f}°F`
     );
     createIcon(containerOne, rainImage, 'rain-icon');
     createAndAppendElement(
         containerOne,
         'chance-of-rain',
-        `Chance Of Rain ${reducedWeatherData.forecastDay[0].rain}%`
+        `Chance Of Rain \n ${reducedWeatherData.forecastDay[0].rain}%`
     );
     createIcon(containerOne, humidityImage, 'humidity-icon');
     createAndAppendElement(
         containerOne,
         'humidity',
-        `Humidity ${reducedWeatherData.humidity} %`
+        `Humidity \n ${reducedWeatherData.humidity} %`
     );
     createIcon(containerOne, windSpeedImage, 'wind-speed-icon');
     createAppendAndAddHiddenClassTemp(
         containerOne,
         'wind-speed',
-        `Wind Speed ${reducedWeatherData.wind_kph} KM/H`
+        `Wind Speed \n ${reducedWeatherData.wind_kph} KM/H`
     );
     createAppendAndAddClassTemp(
         containerOne,
         'wind-speed',
-        `Wind Speed ${reducedWeatherData.wind_mph} MPH`
+        `Wind Speed \n ${reducedWeatherData.wind_mph} MPH`
     );
     createIcon(containerOne, sunriseImage, 'sunrise-icon');
     createAndAppendElement(
         containerOne,
         'sunrise',
-        `Sunrise ${reducedWeatherData.forecastDay[0].sunrise}`
+        `Sunrise \n ${reducedWeatherData.forecastDay[0].sunrise}`
     );
     createIcon(containerOne, sunsetImage, 'sunset-icon');
     createAndAppendElement(
         containerOne,
         'sunset',
-        `Sunset ${reducedWeatherData.forecastDay[0].sunset}`
+        `Sunset \n ${reducedWeatherData.forecastDay[0].sunset}`
     );
 }
 
