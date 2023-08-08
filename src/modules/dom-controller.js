@@ -1,4 +1,5 @@
 import humidityImage from '../img/icons/humidity.png';
+import rainImage from '../img/icons/rain.png';
 import sunriseImage from '../img/icons/sunrise.png';
 import sunsetImage from '../img/icons/sunset.png';
 import thermometerImage from '../img/icons/thermometer.png';
@@ -27,50 +28,43 @@ function clearDOM() {
 
 function loadDailyForecast(forecastDayData) {
     forecastDayData.forEach((day) => {
+        const div = document.createElement('div');
+
         createAndAppendElementWithIcon(
-            containerTwo,
+            div,
             'day-of-the-week',
             formatDayOfTheWeek(day.date),
             day.icon
         );
         createAppendAndAddHiddenClassTemp(
-            containerTwo,
+            div,
             'day-avg-temp',
             `${day.avgtemp_c}°C`
         );
-        createAppendAndAddClassTemp(
-            containerTwo,
-            'day-avg-temp',
-            `${day.avgtemp_f}°F`
-        );
-        createAndAppendElement(containerTwo, 'day-rain', `${day.rain} %`);
+        createAppendAndAddClassTemp(div, 'day-avg-temp', `${day.avgtemp_f}°F`);
+
+        containerTwo.append(div);
     });
 }
 
 function loadHourlyForecast(forecastHourlyData) {
     forecastHourlyData.forEach((day) => {
         day.forEach((hour) => {
+            const div = document.createElement('div');
+
             createAndAppendElementWithIcon(
-                containerThree,
+                div,
                 'hour-time',
                 formatTime(hour.time),
                 hour.icon
             );
             createAppendAndAddHiddenClassTemp(
-                containerThree,
+                div,
                 'hour-temp',
                 `${hour.temp_c}°C`
             );
-            createAppendAndAddClassTemp(
-                containerThree,
-                'hour-temp',
-                `${hour.temp_f}°F`
-            );
-            createAndAppendElement(
-                containerThree,
-                'chance-of-rain',
-                `${hour.chance_of_rain} %`
-            );
+            createAppendAndAddClassTemp(div, 'hour-temp', `${hour.temp_f}°F`);
+            containerThree.append(div);
         });
     });
 }
@@ -111,53 +105,57 @@ function loadContainerOne(reducedWeatherData) {
     createAppendAndAddHiddenClassTemp(
         containerOne,
         'feels-like-temp-container-one',
-        `${reducedWeatherData.feelslike_c}°C`
+        `Feels Like ${reducedWeatherData.feelslike_c}°C`
     );
     createAppendAndAddClassTemp(
         containerOne,
         'feels-like-temp-container-one',
-        `${reducedWeatherData.feelslike_f}°F`
+        `Feels Like ${reducedWeatherData.feelslike_f}°F`
+    );
+    createIcon(containerOne, rainImage, 'rain-icon');
+    createAndAppendElement(
+        containerOne,
+        'chance-of-rain',
+        `Chance Of Rain ${reducedWeatherData.forecastDay[0].rain}%`
     );
     createIcon(containerOne, humidityImage, 'humidity-icon');
     createAndAppendElement(
         containerOne,
         'humidity',
-        `${reducedWeatherData.humidity} %`
+        `Humidity ${reducedWeatherData.humidity} %`
     );
     createIcon(containerOne, windSpeedImage, 'wind-speed-icon');
     createAppendAndAddHiddenClassTemp(
         containerOne,
         'wind-speed',
-        `${reducedWeatherData.wind_kph} KM/H`
+        `Wind Speed ${reducedWeatherData.wind_kph} KM/H`
     );
     createAppendAndAddClassTemp(
         containerOne,
         'wind-speed',
-        `${reducedWeatherData.wind_mph} MPH`
+        `Wind Speed ${reducedWeatherData.wind_mph} MPH`
     );
     createIcon(containerOne, sunriseImage, 'sunrise-icon');
     createAndAppendElement(
         containerOne,
         'sunrise',
-        `Sunrise: ${reducedWeatherData.forecastDay[0].sunrise}`
+        `Sunrise ${reducedWeatherData.forecastDay[0].sunrise}`
     );
     createIcon(containerOne, sunsetImage, 'sunset-icon');
     createAndAppendElement(
         containerOne,
         'sunset',
-        `Sunset: ${reducedWeatherData.forecastDay[0].sunset}`
+        `Sunset ${reducedWeatherData.forecastDay[0].sunset}`
     );
 }
 
 function loadContainerTwo(reducedWeatherData) {
     loadDailyForecast(reducedWeatherData.forecastDay);
-
     loadHourlyForecast(reducedWeatherData.forecastHourly);
 }
 
 function loadDOM(reducedWeatherData) {
     clearDOM();
-    console.log(reducedWeatherData);
     loadContainerOne(reducedWeatherData);
     loadContainerTwo(reducedWeatherData);
     backgroundUpdater(reducedWeatherData);

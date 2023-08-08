@@ -7,13 +7,19 @@
     </head>
     <body>
         <container id="container-one"></container>
-        <form>
-            <input type="text" />
-            <button type="submit">Submit</button>
-        </form>
-        <button id="fahrenheit-celsius-button">Metric</button>
-        <button id="daily-hourly-button">Hourly</button>
-        <container id="container-two" class="time-containers"></container>
+        <div id="button-and-form">
+            <form>
+                <input type="text" placeholder="Search Location" />
+                <button type="submit">Submit</button>
+            </form>
+            <div class="change-data-buttons">
+                <button id="fahrenheit-celsius-button">Metric</button>
+                <button id="daily-hourly-button">Hourly</button>
+            </div>
+        </div>
+        <div class="container-for-container">
+            <container id="container-two" class="time-containers"></container>
+        </div>
         <container
             id="container-three"
             class="hidden time-containers"

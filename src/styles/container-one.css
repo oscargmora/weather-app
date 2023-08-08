@@ -1,3 +1,9 @@
+#container-one > p,
+#container-one > img {
+    align-self: center;
+    padding: 0.5em;
+}
+
 .name {
     font-size: 2em;
 }
@@ -31,38 +37,46 @@
     grid-area: 1 / 3 / 2 / 4;
 }
 
-.humidity-icon {
+.rain-icon {
     grid-area: 2 / 3 / 3 / 4;
 }
 
-.wind-speed-icon {
+.humidity-icon {
     grid-area: 3 / 3 / 4 / 4;
 }
 
-.sunrise-icon {
+.wind-speed-icon {
     grid-area: 4 / 3 / 5 / 4;
 }
 
-.sunset-icon {
+.sunrise-icon {
     grid-area: 5 / 3 / 6 / 4;
+}
+
+.sunset-icon {
+    grid-area: 6 / 3 / 7 / 4;
 }
 
 .feels-like-temp-container-one {
     grid-area: 1 / 4 / 2 / 5;
 }
 
-#container-one > .humidity {
+.chance-of-rain {
     grid-area: 2 / 4 / 3 / 5;
 }
 
-#container-one > .wind-speed {
+#container-one > .humidity {
     grid-area: 3 / 4 / 4 / 5;
 }
 
-.sunrise {
+#container-one > .wind-speed {
     grid-area: 4 / 4 / 5 / 5;
 }
 
-.sunset {
+.sunrise {
     grid-area: 5 / 4 / 6 / 5;
+}
+
+.sunset {
+    grid-area: 6 / 4 / 7 / 5;
 }

@@ -25,8 +25,7 @@ function getHourlyData(day, dayArray) {
             time: hour.time,
             icon: hour.condition.icon,
             temp_c: hour.temp_c,
-            temp_f: hour.temp_f,
-            chance_of_rain: hour.chance_of_rain
+            temp_f: hour.temp_f
         };
         dayArray.push(hourData);
     });
@@ -72,16 +71,12 @@ function processWeatherData(weatherData) {
             {
                 date: weatherData.forecast.forecastday[1].date,
                 icon: weatherData.forecast.forecastday[1].day.condition.icon,
-                rain: weatherData.forecast.forecastday[1].day
-                    .daily_chance_of_rain,
                 avgtemp_c: weatherData.forecast.forecastday[1].day.avgtemp_c,
                 avgtemp_f: weatherData.forecast.forecastday[1].day.avgtemp_f
             },
             {
                 date: weatherData.forecast.forecastday[2].date,
                 icon: weatherData.forecast.forecastday[2].day.condition.icon,
-                rain: weatherData.forecast.forecastday[2].day
-                    .daily_chance_of_rain,
                 avgtemp_c: weatherData.forecast.forecastday[2].day.avgtemp_c,
                 avgtemp_f: weatherData.forecast.forecastday[2].day.avgtemp_f
             }

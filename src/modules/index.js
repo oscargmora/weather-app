@@ -3,6 +3,8 @@ import '../styles/data-styling.css';
 import '../styles/error.css';
 import '../styles/stagnant-html.css';
 import '../styles/container-one.css';
+import '../styles/container-two.css';
+import '../styles/container-three.css';
 import getForecast from './api-controller';
 import {
     switchTemperatureMeasurement,

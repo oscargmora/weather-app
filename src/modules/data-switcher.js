@@ -16,11 +16,17 @@ function switchTimeMeasurement() {
     );
 
     timeContainers.forEach((container) => {
+        const newDisplayValue = container.classList.contains('hidden')
+            ? 'grid'
+            : 'none';
+
         if (container.classList.contains('hidden')) {
             container.classList.remove('hidden');
         } else {
             container.classList.add('hidden');
         }
+
+        container.style.setProperty('display', newDisplayValue);
     });
 }
 
