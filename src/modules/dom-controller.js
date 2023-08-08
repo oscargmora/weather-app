@@ -29,6 +29,7 @@ function clearDOM() {
 
 function loadDailyForecast(forecastDayData) {
     forecastDayData.forEach((day) => {
+        console.log(day);
         const div = document.createElement('div');
 
         createAndAppendElementWithIcon(
@@ -56,6 +57,8 @@ function loadHourlyForecast(forecastHourlyData) {
         containerThree.append(p);
         day.forEach((hour) => {
             const div = document.createElement('div');
+
+            div.classList.add('hour-data');
 
             createAndAppendElementWithIcon(
                 div,
