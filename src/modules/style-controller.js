@@ -32,7 +32,8 @@ function backgroundUpdater(reducedWeatherData) {
             break;
         case reducedWeatherData.condition === 'Rainy' ||
             reducedWeatherData.condition === 'Patchy rain possible' ||
-            reducedWeatherData.condition === 'Light rain':
+            reducedWeatherData.condition === 'Light rain' ||
+            reducedWeatherData.condition === 'Moderate rain':
             document.body.style.backgroundImage = `url('${rain}')`;
             document.body.classList.add('dark-mode');
             break;
