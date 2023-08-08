@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import humidityImage from '../img/icons/humidity.png';
 import rainImage from '../img/icons/rain.png';
 import sunriseImage from '../img/icons/sunrise.png';
@@ -48,7 +49,11 @@ function loadDailyForecast(forecastDayData) {
 }
 
 function loadHourlyForecast(forecastHourlyData) {
+    let i = 1;
     forecastHourlyData.forEach((day) => {
+        const p = document.createElement('p');
+        p.innerText = `Day: ${i}`;
+        containerThree.append(p);
         day.forEach((hour) => {
             const div = document.createElement('div');
 
@@ -66,6 +71,7 @@ function loadHourlyForecast(forecastHourlyData) {
             createAppendAndAddClassTemp(div, 'hour-temp', `${hour.temp_f}°F`);
             containerThree.append(div);
         });
+        i++;
     });
 }
 
