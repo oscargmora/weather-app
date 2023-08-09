@@ -53,8 +53,16 @@ function loadHourlyForecast(forecastHourlyData) {
     let i = 1;
     forecastHourlyData.forEach((day) => {
         const p = document.createElement('p');
-        p.innerText = `Day: ${i}`;
+        const container = document.createElement('container');
+
+        p.classList.add('container-three-p');
+        container.classList.add('container-three-inner-container');
+
+        p.innerText = `Day ${i}:`;
+
+        p.append(container);
         containerThree.append(p);
+
         day.forEach((hour) => {
             const div = document.createElement('div');
 
@@ -72,7 +80,7 @@ function loadHourlyForecast(forecastHourlyData) {
                 `${hour.temp_c}°C`
             );
             createAppendAndAddClassTemp(div, 'hour-temp', `${hour.temp_f}°F`);
-            containerThree.append(div);
+            container.append(div);
         });
         i++;
     });

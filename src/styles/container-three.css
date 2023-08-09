@@ -1,5 +1,16 @@
-#container-three > div {
+.container-three-p {
+    background-color: rgba(240, 248, 255, 0.344);
+    padding: 1em;
+    border-radius: 1em;
+    margin: 1em;
+}
+
+.container-three-inner-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.container-three-inner-container > div {
     margin: 1em;
     justify-self: center;
-    text-align: center;
 }
