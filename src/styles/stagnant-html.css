@@ -37,6 +37,31 @@ form,
     padding: 0.5em;
 }
 
+#button-and-form {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black;
+}
+
+input.dark-mode {
+    border-color: white;
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 4px;
+    background: none;
+}
+
+button.dark-mode {
+    border: 2px solid white;
+}
+
 #container-one {
     display: grid;
     grid-template-columns: 1fr 1fr 0.2fr 1fr;
