@@ -78,3 +78,79 @@ button.dark-mode {
     display: none;
     grid-template-rows: 1fr 1fr 1fr;
 }
+
+@media (max-width: 540px) {
+    #container-one {
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-columns: 1fr 1fr;
+        width: min-content;
+    }
+
+    img.thermometer-icon {
+        grid-area: 7 / 1 / 8 / 2;
+        justify-self: auto;
+    }
+
+    img.rain-icon {
+        grid-area: 8 / 1 / 9 / 2;
+        justify-self: auto;
+    }
+
+    img.humidity-icon {
+        grid-area: 9 / 1 / 10 / 2;
+        justify-self: auto;
+    }
+
+    img.wind-speed-icon {
+        grid-area: 10 / 1 / 11 / 2;
+        justify-self: auto;
+    }
+
+    img.sunrise-icon {
+        grid-area: 11 / 1 / 12 / 2;
+        justify-self: auto;
+    }
+
+    img.sunset-icon {
+        grid-area: 12 / 1 / 13 / 2;
+        justify-self: auto;
+    }
+
+    img.feels-like-temp-container-one {
+        grid-area: 7 / 2 / 8 / 3;
+        justify-self: auto;
+    }
+
+    img.chance-of-rain {
+        grid-area: 8 / 2 / 9 / 3;
+        justify-self: auto;
+    }
+
+    p.feels-like-temp-container-one {
+        grid-area: 7 / 2 / 8 / 3;
+    }
+
+    p.chance-of-rain {
+        grid-area: 8 / 2 / 9 / 3;
+    }
+
+    #container-one > p.humidity {
+        grid-area: 9 / 2 / 10 / 3;
+    }
+
+    #container-one > p.wind-speed {
+        grid-area: 10 / 2 / 11 / 3;
+    }
+
+    p.sunrise {
+        grid-area: 11 / 2 / 12 / 3;
+    }
+
+    p.sunset {
+        grid-area: 12 / 2 / 13 / 3;
+    }
+
+    #button-and-form {
+        flex-direction: column;
+    }
+}
