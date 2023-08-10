@@ -64,7 +64,9 @@ function backgroundUpdater(reducedWeatherData) {
             });
             break;
         case reducedWeatherData.condition === 'Thunderstorms' ||
-            reducedWeatherData.condition === 'Patchy light rain with thunder':
+            reducedWeatherData.condition === 'Patchy light rain with thunder' ||
+            reducedWeatherData.condition ===
+                'Moderate or heavy rain with thunder':
             document.body.style.backgroundImage = `url('${thunderstorm}')`;
             document.body.classList.add('dark-mode');
             input.classList.add('dark-mode');

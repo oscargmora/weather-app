@@ -40,16 +40,32 @@ form,
 #button-and-form {
     display: flex;
     justify-content: space-evenly;
+    background-color: rgba(240, 248, 255, 0.344);
+    margin: 1em;
+    border-radius: 8px;
 }
 
 input {
     outline: 0;
     border-width: 0 0 2px;
     border-color: black;
+    background: none;
+}
+
+input::placeholder {
+    color: black;
 }
 
 input.dark-mode {
     border-color: white;
+}
+
+input.dark-mode::placeholder {
+    color: white;
+}
+
+input.dark-mode:focus {
+    color: white;
 }
 
 button {
@@ -60,18 +76,25 @@ button {
 
 button.dark-mode {
     border: 2px solid white;
+    color: white;
 }
 
 #container-one {
     display: grid;
     grid-template-columns: 1fr 1fr 0.2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    background-color: rgba(240, 248, 255, 0.344);
+    margin: 1em;
+    border-radius: 8px;
 }
 
 #container-two {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
+    background-color: rgba(240, 248, 255, 0.344);
+    margin: 1em;
+    border-radius: 8px;
 }
 
 #container-three {
@@ -83,7 +106,6 @@ button.dark-mode {
     #container-one {
         grid-template-rows: repeat(12, 1fr);
         grid-template-columns: 1fr 1fr;
-        width: min-content;
     }
 
     img.thermometer-icon {
@@ -152,5 +174,9 @@ button.dark-mode {
 
     #button-and-form {
         flex-direction: column;
+    }
+
+    container.container-three-inner-container {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
