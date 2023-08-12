@@ -44,7 +44,6 @@ function getHourlyDataPerDay(weatherData) {
 }
 
 function processWeatherData(weatherData) {
-    console.log(weatherData);
     const hourlyDataPerDayArray = getHourlyDataPerDay(weatherData);
     const reducedWeatherData = {
         name: weatherData.location.name,

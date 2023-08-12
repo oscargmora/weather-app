@@ -29,7 +29,6 @@ function clearDOM() {
 
 function loadDailyForecast(forecastDayData) {
     forecastDayData.forEach((day) => {
-        console.log(day);
         const div = document.createElement('div');
 
         createAndAppendElementWithIcon(
