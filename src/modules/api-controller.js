@@ -61,7 +61,7 @@ function processWeatherData(weatherData) {
         is_day: weatherData.current.is_day,
         forecastDay: [
             {
-                date: weatherData.forecast.forecastday[0].date,
+                date: weatherData.forecast.forecastday[0].hour[0].time,
                 icon: weatherData.forecast.forecastday[0].day.condition.icon,
                 sunrise: weatherData.forecast.forecastday[0].astro.sunrise,
                 sunset: weatherData.forecast.forecastday[0].astro.sunset,
@@ -71,13 +71,13 @@ function processWeatherData(weatherData) {
                 avgtemp_f: weatherData.forecast.forecastday[0].day.avgtemp_f
             },
             {
-                date: weatherData.forecast.forecastday[1].date,
+                date: weatherData.forecast.forecastday[1].hour[0].time,
                 icon: weatherData.forecast.forecastday[1].day.condition.icon,
                 avgtemp_c: weatherData.forecast.forecastday[1].day.avgtemp_c,
                 avgtemp_f: weatherData.forecast.forecastday[1].day.avgtemp_f
             },
             {
-                date: weatherData.forecast.forecastday[2].date,
+                date: weatherData.forecast.forecastday[2].hour[0].time,
                 icon: weatherData.forecast.forecastday[2].day.condition.icon,
                 avgtemp_c: weatherData.forecast.forecastday[2].day.avgtemp_c,
                 avgtemp_f: weatherData.forecast.forecastday[2].day.avgtemp_f
