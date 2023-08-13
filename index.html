@@ -5,5 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather App</title>
     <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
-    <body></body>
+    <body>
+        <container id="container-one"></container>
+        <div id="button-and-form">
+            <form>
+                <input type="text" placeholder="Search Location" />
+                <button type="submit">Submit</button>
+            </form>
+            <div class="change-data-buttons">
+                <button id="fahrenheit-celsius-button">Metric</button>
+                <button id="daily-hourly-button">Hourly</button>
+            </div>
+        </div>
+        <div class="container-for-container">
+            <container id="container-two" class="time-containers"></container>
+        </div>
+        <container
+            id="container-three"
+            class="hidden time-containers"
+        ></container>
+        <div class="overlay">
+            <p class="error-default-content"></p>
+            <p class="error-content"></p>
+        </div>
+    </body>
 </html>
