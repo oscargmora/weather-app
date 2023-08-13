@@ -49,15 +49,15 @@ function loadDailyForecast(forecastDayData) {
 }
 
 function loadHourlyForecast(forecastHourlyData) {
-    let i = 1;
     forecastHourlyData.forEach((day) => {
+        const dayOfTheWeek = formatDayOfTheWeek(day[0].time);
         const p = document.createElement('p');
         const container = document.createElement('container');
 
         p.classList.add('container-three-p');
         container.classList.add('container-three-inner-container');
 
-        p.innerText = `Day ${i}:`;
+        p.innerText = dayOfTheWeek;
 
         p.append(container);
         containerThree.append(p);
@@ -81,7 +81,6 @@ function loadHourlyForecast(forecastHourlyData) {
             createAppendAndAddClassTemp(div, 'hour-temp', `${hour.temp_f}°F`);
             container.append(div);
         });
-        i++;
     });
 }
 
