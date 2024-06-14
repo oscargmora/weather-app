@@ -37,6 +37,11 @@
 * ![HTML5](https://img.shields.io/badge/HTML5%20-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 * ![CSS3](https://img.shields.io/badge/CSS%20-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 * ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+* ![Webpack](https://img.shields.io/badge/Webpack%20-%23d91a60.svg?style=for-the-badge&logo=webpack)
+* ![Jest](https://img.shields.io/badge/Jest%20-%2396727c.svg?style=for-the-badge&logo=jest&logoColor=white)
+* ![Babel](https://img.shields.io/badge/Babel-601011.svg?style=for-the-badge&logo=babel)
+* ![Prettier](https://img.shields.io/badge/Prettier-27333b.svg?style=for-the-badge&logo=prettier)
+* ![ESLint](https://img.shields.io/badge/ESLint-5139c5.svg?style=for-the-badge&logo=eslint)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
