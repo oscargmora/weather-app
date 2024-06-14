@@ -1,7 +1,3 @@
-# weather-app
-
-Live Demo --> https://oscargmora.github.io/weather-app/
-.
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
